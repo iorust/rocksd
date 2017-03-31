@@ -1,21 +1,21 @@
 [package]
-name = "rocksmq"
+name = "rocksd"
 version = "0.0.1"
 authors = ["zensh <admin@zensh.com>"]
-description = "A filesystem-backup message queue service base on RocksDB."
-repository = "https://github.com/iorust/rocksmq"
+description = "A key-vaule and message queue server written in RUST using RocksDB as a backend."
+repository = "https://github.com/iorust/rocksd"
 readme = "README.md"
 keywords = ["tokio", "RocksDB", "message", "queue", "kv", "cache"]
 license = "MIT"
 
 [lib]
-name = "rocksmq"
+name = "rocksd"
 
 [[bin]]
-name = "rocksmq_server"
+name = "rocksd_cli"
 
 [[bin]]
-name = "rocksmq_cli"
+name = "rocksd_server"
 
 [dependencies]
 rocksdb = "0.6"

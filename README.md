@@ -1,3 +1,3 @@
-# RocksMQ
+# RocksD
 
-A filesystem-backup message queue service base on RocksDB
+A key-vaule and message queue server written in RUST using RocksDB as a backend.
