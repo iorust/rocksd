@@ -1,0 +1,64 @@
+syntax = "proto3";
+package rocksdpb;
+
+message CmdGetRequest {
+    bytes key     = 1;
+}
+
+message CmdGetResponse {
+    bytes value   = 1;
+    string error  = 2;
+}
+
+message CmdSetRequest {
+    bytes key     = 1;
+    bytes value   = 2;
+    uint64 expire = 3;
+    oneof body {
+        bool notExists = 4;
+        bytes compare = 5;
+    }
+}
+
+message CmdSetResponse {
+    bool result   = 1;
+    string error  = 2;
+}
+
+message CmdPingRequest {
+    string message   = 1;
+}
+
+message CmdPingResponse {
+    string message   = 1;
+}
+
+enum MessageType {
+    CmdQuit            = 0;
+    CmdGet             = 2;
+    CmdSet             = 3;
+
+    // system commands
+    CmdPing            = 256;
+}
+
+
+message Request {
+    MessageType             type                  = 1;
+    oneof body {
+      CmdGetRequest           cmd_get_req           = 2;
+      CmdSetRequest           cmd_set_req           = 3;
+
+      CmdPingRequest          cmd_ping_req          = 256;
+    }
+}
+
+message Response {
+    MessageType             type                  = 1;
+    oneof body {
+      CmdGetResponse          cmd_get_res           = 2;
+      CmdSetResponse          cmd_set_res           = 3;
+
+      CmdPingResponse         cmd_ping_res          = 256;
+    }
+}

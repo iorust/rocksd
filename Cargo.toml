@@ -5,14 +5,14 @@ authors = ["zensh <admin@zensh.com>"]
 description = "A key-vaule and message queue server written in RUST using RocksDB as a backend."
 repository = "https://github.com/iorust/rocksd"
 readme = "README.md"
-keywords = ["tokio", "RocksDB", "message", "queue", "kv", "cache"]
+keywords = ["tokio", "RocksDB", "message", "queue", "kv"]
 license = "MIT"
 
 [lib]
 name = "rocksd"
 
 [[bin]]
-name = "rocksd_cli"
+name = "rocksd_ctl"
 
 [[bin]]
 name = "rocksd_server"
@@ -25,12 +25,13 @@ tokio-core = "0.1"
 tokio-proto = "0.1"
 tokio-service = "0.1"
 tokio-timer = "0.1"
+tokio-rpc = "0.1"
 protobuf = "1.2"
 ring = "0.7"
 log = "0.3"
 rand = "0.3"
 time = "0.1"
+bytes = "0.4"
 clap = {version = "2.22", default-features = false}
 
 [dev-dependencies]
-env_logger = "0.3.5"
